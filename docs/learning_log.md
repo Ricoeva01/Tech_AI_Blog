@@ -555,3 +555,33 @@ To take this project from "functioning" to "professional production-grade", cons
     },
   ],
   ```
+
+## Workflow: Local Development to Production Deployment
+
+- **Context:** You have made changes to your code locally (e.g., fixed a bug, added a feature) and want to see them live on your website.
+- **The Process:**
+  1.  **Local Development:** Make your changes and test them.
+  2.  **Git Staging:** Add the modified files to the "staging area".
+  3.  **Git Commit:** Save the snapshot of your changes with a descriptive message.
+  4.  **Git Push:** Upload your commit to the remote repository (GitHub).
+  5.  **Vercel Deployment:** Vercel automatically detects the new commit on the `main` branch and starts a build/deployment.
+
+- **Commands:**
+  ```bash
+  # 1. Check which files have changed
+  git status
+
+  # 2. Stage the changes (replace . with specific filenames if needed)
+  git add .
+
+  # 3. Commit the changes
+  git commit -m "Description of what changed (e.g., fix: styling on dashboard)"
+
+  # 4. Push to GitHub
+  git push origin main
+  ```
+
+- **Verification:**
+  - Go to your Vercel Dashboard.
+  - You will see a "Building" status for the new commit.
+  - Once it turns green ("Ready"), your changes are live at your domain.
