@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TechIABlog 🤖
 
-## Getting Started
+A modern, full-stack tech blog built with **Next.js 15**, **MongoDB**, and **Tailwind CSS**. 
+Features include markdown-based article creation, user authentication, image optimization, and a responsive design.
 
-First, run the development server:
+## 🚀 Key Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js App Router:** Server Components for SEO and performance, Client Components for interactivity.
+- **Full-Stack:** Integrated API routes and Server Actions for backend logic.
+- **Database:** MongoDB with Mongoose for structured data modeling (Users, Posts, Tags).
+- **Authentication:** Custom session-based authentication using HTTP-only cookies.
+- **Content Management:** Markdown support with syntax highlighting for code blocks.
+- **Image Handling:** Integration with BunnyCDN for optimized image delivery.
+- **Styling:** Tailwind CSS for rapid, responsive UI development.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Framework:** [Next.js 15](https://nextjs.org/)
+- **Language:** JavaScript
+- **Database:** MongoDB
+- **ORM:** Mongoose
+- **Styling:** Tailwind CSS
+- **Authentication:** Custom (JWT/Session Cookies)
+- **Markdown:** `marked`, `marked-highlight`, `prismjs`
+- **Utilities:** `date-fns`, `sonner` (toasts), `zod` (validation)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 📦 Installation & Setup
 
-## Learn More
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/YOUR_USERNAME/TechIABlog.git
+    cd TechIABlog
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3.  **Environment Variables:**
+    Create a `.env.local` file in the root directory and add the following variables:
+    ```env
+    MONGO=your_mongodb_connection_string
+    BUNNY_STORAGE_ZONE=your_bunny_zone
+    BUNNY_STORAGE_HOST=your_bunny_host
+    BUNNY_STORAGE_API_KEY=your_bunny_key
+    # Add other necessary secrets here
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
 
-## Deploy on Vercel
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚢 Deployment (Vercel)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new).
+
+1.  Push your code to a GitHub repository.
+2.  Import the project into Vercel.
+3.  Add your **Environment Variables** (from `.env.local`) in the Vercel project settings.
+4.  Deploy!
+
+## 🤝 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## 📄 License
+
+[MIT](https://choosealicense.com/licenses/mit/)
