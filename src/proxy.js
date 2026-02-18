@@ -1,8 +1,7 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
-export async function middleware(request) {
-  console.log("MIDDLEWARE CALLED");
+export async function proxy(request) {
   const authCheckUrl = new URL("/api/auth/validateSession", request.url);
   const authResponse = await fetch(authCheckUrl, {
     headers: {

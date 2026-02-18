@@ -262,7 +262,7 @@ To take this project from "functioning" to "professional production-grade", cons
 - **The Problem:** 
   1. **React Hook Violation:** In \`DeletePostButton.jsx\`, the \`useRouter\` hook was being called *inside* the \`onClick\` handler, which is illegal in React. Hooks must be called at the top level of the component.
   2. **Stale Data:** The server action \`deletePostById\` was only revalidating the deleted post's page, not the homepage or the dashboard list from where the deletion occurred.
-- **The Solution:**
+  - **The Solution:**
   1. **Fixed Hook Usage:** Moved \`const router = useRouter()\` to the top of the component and used the \`router\` instance inside the handler.
   2. **Added Revalidation:** Updated \`deletePostById\` to call \`revalidatePath("/")\` and \`revalidatePath(\`/dashboard/\${post.author}\`)\` to ensure the lists update immediately.
 - **Key Concept:** **Rules of Hooks & Cache Revalidation**. 
@@ -585,3 +585,25 @@ To take this project from "functioning" to "professional production-grade", cons
   - Go to your Vercel Dashboard.
   - You will see a "Building" status for the new commit.
   - Once it turns green ("Ready"), your changes are live at your domain.
+
+## [2026-02-18] Fix: Next.js 16 Upgrade Issues (Middleware, Hydration, Turbopack)
+
+- **Context:** Upgrading to Next.js 16 (or recent canary) introduced breaking changes and hydration errors.
+- **The Problem:** 
+  1.  **Turbopack Conflict:** Multiple lockfiles (`package-lock.json` and user root `pnpm-lock.yaml`) caused warnings.
+  2.  **Middleware Deprecation:** Next.js error stated "middleware file convention is deprecated. Please use proxy instead."
+  3.  **Hydration Mismatch:** 
+      -   `BlogCard` used `new Date().toISOString()` which differs between server (SSR) and client.
+      -   `layout.jsx` structure (array of children in `AuthProvider`) caused `Suspense` boundary mismatches in the new version.
+- **The Solution:**
+  1.  **Config:** Added `experimental: { turbopack: { root: "..." } }` to `next.config.mjs`.
+  2.  **Renaming:** Renamed `src/middleware.js` to `src/proxy.js` and updated the export to `export async function proxy`.
+  3.  **Hydration:** 
+      -   Updated `BlogCard.jsx` to use stable `post.createdAt`.
+      -   Wrapped `AuthProvider` children in `src/app/layout.jsx` with a React Fragment (`<>...</>`) to group them as a single child.
+- **Key Concept:** **Stable Hydration & Updates**. When upgrading frameworks, check for breaking changes (like filename conventions). Ensure all server-rendered data (like dates) is stable and matches the client.
+- **Code Snippet:**
+  ```js
+  // src/proxy.js (formerly middleware.js)
+  export async function proxy(request) { ... }
+  ```

@@ -21,7 +21,7 @@ function BlogCard({ post }) {
       <div className="pt-5 px-5 pb-7">
         <div className="flex items-baseline gap-x-4 text-xs">
           <time
-            dateTime={new Date().toISOString()}
+            dateTime={post.createdAt}
             className="text-gray-500 text-sm"
           >
             {new Date(post.createdAt).toLocaleDateString("en-EN", {
