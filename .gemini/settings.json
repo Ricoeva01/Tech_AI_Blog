@@ -1,0 +1,12 @@
+{
+  "general": { "previewFeatures": true },
+  "toolPermissions": {
+    "alwaysAllow": [
+      "read_file",
+      "find_files",
+      "list_directory",
+      "search_files"
+    ],
+    "alwaysAsk": ["write_file", "run_terminal_command"]
+  }
+}

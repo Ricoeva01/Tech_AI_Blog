@@ -1,0 +1,51 @@
+.article-styles h1,
+.article-styles h2,
+.article-styles h3,
+.article-styles h4,
+.article-styles h5,
+.article-styles h6 {
+  /* Headings coming from markdown should be visibly larger and bolder */
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.article-styles h1 {
+  font-size: 2.25rem;
+}
+.article-styles h2 {
+  font-size: 1.5rem;
+}
+.article-styles h3 {
+  font-size: 1.25rem;
+}
+.article-styles h4 {
+  font-size: 1.125rem;
+}
+.article-styles h5 {
+  font-size: 1rem;
+}
+.article-styles h6 {
+  font-size: 0.95rem;
+}
+
+.article-styles p,
+.article-styles li {
+  font-size: 18px;
+}
+.article-styles p {
+  margin-bottom: 8px;
+}
+.article-styles li {
+  margin-bottom: 4px;
+}
+.article-styles pre {
+  display: block;
+  margin: 20px 0 !important;
+  padding: 24px 24px 32px !important;
+  border-radius: 5px;
+  background-color: dimgray;
+}
+.article-styles pre code {
+  font-size: 18px;
+}
