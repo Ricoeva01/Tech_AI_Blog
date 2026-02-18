@@ -1,3 +1,0 @@
-- [x] Professional Database Connection --> The current connection logic in src/lib/utils/db/connectDB.js is basic. For a production Next.js app, it's often better to cache the connection promise globally to prevent multiple connections during hot reloading (development). Do we need to use Redux or something similar like zod ?
-- [x] Image Handling in src/app/page.jsx => Display a tiny image for each card component.
-- [x] Improve speed of creation of a new post in src/app/articles/[slug]/page.jsx => When I clicked on submit I wait 3 sec and then the 3 sec redirection start. is there anysolution to improve the code meawhile the redirection countdown start it is possible for the server to save all the data. Find solution to make the submission faster.
